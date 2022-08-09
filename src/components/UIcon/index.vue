@@ -17,7 +17,6 @@ const svgClass = computed(() => {
     }
     return "svg-icon";
 })
-
 </script>
 
 <style scope>

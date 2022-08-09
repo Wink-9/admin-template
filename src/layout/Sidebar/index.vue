@@ -2,19 +2,18 @@
 import { dynamicRoutes } from '@/router/index.js'
 import SideBarItem from './SideBarItem.vue'
 import { opend } from '../sidebarShrink.js'
+import dancelogo from './logo.js'
 const route = useRoute();
 const activeRoute = computed(() => route.path);
 const sidbarOptions = computed(() => dynamicRoutes);
+const { currentlogo, logoDot }  = dancelogo()
 </script>
 
 <template>
-    <el-menu class="el-menu-container" :default-active="activeRoute" active-text-color="#ffd04b"
+    <el-menu class="el-menu-container" :default-active="activeRoute" :active-text-color="currentlogo.color"
         background-color="#131822" text-color="#fff" router :collapse="!opend">
         <div class="el-menu-container__head-logo">
-            <!-- <img src="@/assets/logo/vite.svg" class="logo vite" /> -->
-            <!-- <img src="@/assets/logo/vue.svg" class="logo vue" /> -->
-            <img src="@/assets/logo/pinia.svg" class="logo pinia" />
-            <!-- <img src="@/assets/logo/ts.svg" class="logo ts" /> -->
+            <img :src="`/${currentlogo.name}.svg`" :class="['logo', currentlogo.name]" @click="logoDot" />
         </div>
         <side-bar-item v-for="item in sidbarOptions" :item="item" :key="item.path" />
     </el-menu>

@@ -34,7 +34,6 @@ function onReset(formEl: FormInstance | undefined) {
     formEl?.resetFields()
     onSearch()
 }
-
 const dataPickType: QueryValueInterface = {
     year: {
         valueFormat: 'YYYY'
