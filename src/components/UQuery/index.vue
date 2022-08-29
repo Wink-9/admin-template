@@ -74,7 +74,7 @@ const dataPickType: QueryValueInterface = {
 <template>
     <el-form class="query-form" ref="queryFormEl" label-position="right" inline :model="queryModel">
         <template v-for="(row, key) in queryModel" :key="key">
-            <el-form-item :label="row.label" :prop="key">
+            <el-form-item :label="row.label" :prop="key + '.queryValue'">
                 <el-input v-if="row.type === 'input' || !row.type" v-model="row.queryValue" placeholder="请输入" />
                 <el-select v-else-if="row.type === 'select'" v-model="row.queryValue" placeholder="请选择">
                     <el-option v-for="item in (row.options || [])" :key="item.value" :label="item.label"

@@ -1,3 +1,5 @@
+import { useFavicon } from "@vueuse/core";
+
 function dancelogo() {
   interface Logos {
     name: string;
@@ -21,17 +23,20 @@ function dancelogo() {
       color: "#1a80c5",
     },
   ];
-  const logoIdx = ref<number>(0);
-  function logoDot(): void {
-    logoIdx.value = Math.floor(Math.random() * logos.length);
+  const logoIdx = ref<number>(Math.floor(Math.random() * logos.length));
+  function logoToggle(): void {
+    if (logoIdx.value >= logos.length - 1) {
+      logoIdx.value = 0;
+    } else {
+      logoIdx.value++;
+    }
   }
-  logoDot();
-  const currentlogo = computed<Logos>(() => {
-    return logos[logoIdx.value];
-  });
+  const currentlogo = computed<Logos>(() => logos[logoIdx.value]);
+  const favicon = computed<string>(() => currentlogo.value.name + ".svg");
+  useFavicon(favicon);
   return {
     currentlogo,
-    logoDot,
+    logoToggle,
   };
 }
 

@@ -9,7 +9,6 @@ const props = withDefaults(defineProps<Props>(), {
     className: '',
     color: 'currentColor',
 })
-
 const iconName = computed(() => `#icon-${props.iconClass}`)
 const svgClass = computed(() => {
     if (props.className) {

@@ -6,14 +6,14 @@ import dancelogo from './logo.js'
 const route = useRoute();
 const activeRoute = computed(() => route.path);
 const sidbarOptions = computed(() => dynamicRoutes);
-const { currentlogo, logoDot }  = dancelogo()
+const { currentlogo, logoToggle }  = dancelogo()
 </script>
 
 <template>
     <el-menu class="el-menu-container" :default-active="activeRoute" :active-text-color="currentlogo.color"
         background-color="#131822" text-color="#fff" router :collapse="!opend">
         <div class="el-menu-container__head-logo">
-            <img :src="`/${currentlogo.name}.svg`" :class="['logo', currentlogo.name]" @click="logoDot" />
+            <img :src="`/${currentlogo.name}.svg`" :class="['logo', currentlogo.name]" @click="logoToggle" />
         </div>
         <side-bar-item v-for="item in sidbarOptions" :item="item" :key="item.path" />
     </el-menu>

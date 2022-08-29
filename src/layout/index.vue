@@ -3,6 +3,7 @@
 <script setup lang="ts">
 import Sidebar from './Sidebar/index.vue'
 import Navbar from './Navbar/index.vue'
+import AppMian from './AppMian.vue';
 </script>
 
 <template>
@@ -15,7 +16,7 @@ import Navbar from './Navbar/index.vue'
                 <Navbar />
             </el-header>
             <el-main>
-                <router-view />
+                <AppMian/>
             </el-main>
         </el-container>
     </el-container>
