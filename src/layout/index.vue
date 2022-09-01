@@ -39,4 +39,8 @@ import AppMian from './AppMian.vue';
     height: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+.el-main {
+    margin: 0;
+    padding: 0;
+}
 </style>

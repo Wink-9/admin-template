@@ -23,8 +23,9 @@ export default defineConfig({
     })
   ],
   server: {
-    port: 8090,
+    port: 8099,
     open: true,
+    host: true,
   },
   resolve: {
     alias: {

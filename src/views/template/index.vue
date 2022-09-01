@@ -54,19 +54,21 @@ function handleCurrentChange() { }
 
 
 <template>
-    <UQuery :toolConfig="queryConfigData" @search="search" />
-    <UActionbar :toolConfig="tableConfig">
-        <el-button type="primary">新增</el-button>
-    </UActionbar>
-    <UTable :toolConfig="tableConfig" :data="tableData" v-loading="tableLoading" selection
-        @selection-change="handleSelectionChange">
-        <template #operate="{ row }">
-            <el-button-group>
-                <el-button type="success" text>编辑</el-button>
-                <el-button type="warning" text>删除</el-button>
-            </el-button-group>
-        </template>
-    </UTable>
-    <UPagination v-model:currentPage="listQuery.currentPage" v-model:page-size="listQuery.pageSize" :total="100"
-        @current-change="handleCurrentChange" />
+    <div class="app-container">
+        <UQuery :toolConfig="queryConfigData" @search="search" />
+        <UActionbar :toolConfig="tableConfig">
+            <el-button type="primary">新增</el-button>
+        </UActionbar>
+        <UTable :toolConfig="tableConfig" :data="tableData" v-loading="tableLoading" selection
+            @selection-change="handleSelectionChange">
+            <template #operate="{ row }">
+                <el-button-group>
+                    <el-button type="success" text>编辑</el-button>
+                    <el-button type="warning" text>删除</el-button>
+                </el-button-group>
+            </template>
+        </UTable>
+        <UPagination v-model:currentPage="listQuery.currentPage" v-model:page-size="listQuery.pageSize" :total="100"
+            @current-change="handleCurrentChange" />
+    </div>
 </template>
